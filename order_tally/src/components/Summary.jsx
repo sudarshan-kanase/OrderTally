@@ -1,7 +1,7 @@
 function Summary({ menu }) {
 
   const total = menu.reduce(
-    (sum,item)=> sum + item.price*item.qty,
+    (sum,item)=> sum + item.price * item.qty,
     0
   );
 
@@ -11,29 +11,33 @@ function Summary({ menu }) {
   );
 
   return (
-    <div
-      className="position-fixed bottom-0 w-100 text-white"
-      style={{
-        maxWidth:"450px",
-        margin:"auto",
-        right:0,
-        background:"rgba(0,0,0,0.85)",
-        backdropFilter:"blur(10px)"
-      }}
-    >
-      <div className="d-flex justify-content-between p-3">
+    <div className="fixed-bottom d-flex justify-content-center">
 
-        <div>
-          <small>Items</small>
-          <h5>{count}</h5>
+      <div
+        className="w-100 text-white"
+        style={{
+          maxWidth:"450px",
+          background:"rgba(0,0,0,0.9)",
+          backdropFilter:"blur(10px)",
+          borderTopLeftRadius:"15px",
+          borderTopRightRadius:"15px"
+        }}
+      >
+        <div className="d-flex justify-content-between p-4">
+
+          <div>
+            <small>Items</small>
+            <h5>{count}</h5>
+          </div>
+
+          <div className="text-end">
+            <small>Total</small>
+            <h4>₹ {total}</h4>
+          </div>
+
         </div>
-
-        <div className="text-end">
-          <small>Total</small>
-          <h4>₹ {total}</h4>
-        </div>
-
       </div>
+
     </div>
   );
 }

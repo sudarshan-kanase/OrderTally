@@ -1,5 +1,4 @@
 function OfficeSelect({ office, setOffice }) {
-
   return (
     <select
       className="form-select mb-3 shadow"

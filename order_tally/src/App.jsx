@@ -36,17 +36,15 @@ function App() {
 
   return (
     <div
-      className="container py-3 pb-5 text-white"
+      className="container py-3 text-white"
       style={{
         maxWidth: "450px",
-        backdropFilter: "blur(12px)",
-        background: "rgba(255,255,255,0.08)",
-        borderRadius: "20px"
+        paddingBottom: "130px"
       }}
     >
 
       <h2 className="text-center fw-bold mb-3">
-        अभिनंदन कडक स्पेशल चहा <br></br>
+        अभिनंदन कडक स्पेशल चहा <br />
         ☕ Chai Counter
       </h2>
 

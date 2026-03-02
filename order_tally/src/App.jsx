@@ -23,7 +23,7 @@ function App() {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setMenu(JSON.parse(data));
     } else {
-      setMenu(defaultMenu.map(item => ({ ...item })));
+      setMenu(defaultMenu.map(i => ({ ...i })));
     }
   }, [office]);
 
@@ -35,14 +35,25 @@ function App() {
   }, [menu, office]);
 
   return (
-    <div className="container py-3 pb-5" style={{maxWidth:"450px"}}>
-      <h2 className="text-center mb-3 fw-bold">
+    <div
+      className="container py-3 pb-5 text-white"
+      style={{
+        maxWidth: "450px",
+        backdropFilter: "blur(12px)",
+        background: "rgba(255,255,255,0.08)",
+        borderRadius: "20px"
+      }}
+    >
+
+      <h2 className="text-center fw-bold mb-3">
+        अभिनंदन कडक स्पेशल चहा <br></br>
         ☕ Chai Counter
       </h2>
 
       <OfficeSelect office={office} setOffice={setOffice}/>
       <Menu menu={menu} setMenu={setMenu}/>
       <Summary menu={menu}/>
+
     </div>
   );
 }

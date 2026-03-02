@@ -3,12 +3,9 @@ function Menu({ menu, setMenu }) {
   const updateQty = (index, type) => {
     const newMenu = [...menu];
 
-    if (type === "add") {
-      newMenu[index].qty += 1;
-    } 
-    else if (newMenu[index].qty > 0) {
+    if (type === "add") newMenu[index].qty += 1;
+    else if (newMenu[index].qty > 0)
       newMenu[index].qty -= 1;
-    }
 
     setMenu(newMenu);
   };
@@ -16,45 +13,48 @@ function Menu({ menu, setMenu }) {
   return (
     <div className="mt-3">
 
-      {menu.map((item, i) => (
-        <div key={i} className="card mb-3 shadow rounded-4">
+      {menu.map((item,i)=>(
+        <div
+          key={i}
+          className="mb-3 p-3"
+          style={{
+            borderRadius:"18px",
+            background:"rgba(255,255,255,0.12)",
+            backdropFilter:"blur(10px)"
+          }}
+        >
 
-          <div className="card-body">
+          <div className="d-flex justify-content-between align-items-center">
 
-            {/* Item Name */}
-            <div className="d-flex justify-content-between align-items-center">
+            <div>
+              <h5 className="fw-bold">{item.name}</h5>
+              <small>₹ {item.price}</small>
+            </div>
 
-              <div>
-                <h5 className="fw-bold mb-1">{item.name}</h5>
-                <span className="text-muted">₹ {item.price}</span>
-              </div>
+            <div className="d-flex align-items-center">
 
-              {/* Counter Buttons */}
-              <div className="d-flex align-items-center">
+              <button
+                className="btn btn-danger btn-lg rounded-circle"
+                onClick={()=>updateQty(i,"minus")}
+              >
+                -
+              </button>
 
-                <button
-                  className="btn btn-danger btn-lg px-3"
-                  onClick={() => updateQty(i, "minus")}
-                >
-                  -
-                </button>
+              <span className="mx-3 fs-3 fw-bold">
+                {item.qty}
+              </span>
 
-                <span className="mx-3 fs-4 fw-bold">
-                  {item.qty}
-                </span>
-
-                <button
-                  className="btn btn-success btn-lg px-3"
-                  onClick={() => updateQty(i, "add")}
-                >
-                  +
-                </button>
-
-              </div>
+              <button
+                className="btn btn-success btn-lg rounded-circle"
+                onClick={()=>updateQty(i,"add")}
+              >
+                +
+              </button>
 
             </div>
 
           </div>
+
         </div>
       ))}
 
